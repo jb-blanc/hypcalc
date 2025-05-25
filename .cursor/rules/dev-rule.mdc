@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Development must be made with react, material design, and respection typescript standards
+- data will be saved in a json file
+- we will have a docker file for running our app
