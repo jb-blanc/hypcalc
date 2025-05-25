@@ -116,9 +116,9 @@ const TradeCalculator: React.FC = () => {
       const importedTrades = JSON.parse(importJson);
       if (typeof importedTrades === 'object' && importedTrades !== null) {
         // Validate the trade matrix structure
-        const isValid = Object.entries(importedTrades).every(([fromId, toPlanets]) => {
+        const isValid = Object.entries(importedTrades).every(([, toPlanets]) => {
           if (typeof toPlanets !== 'object' || toPlanets === null) return false;
-          return Object.entries(toPlanets).every(([toId, amount]) => {
+          return Object.entries(toPlanets).every(([, amount]) => {
             return typeof amount === 'number' && amount >= 0;
           });
         });
@@ -212,7 +212,7 @@ const TradeCalculator: React.FC = () => {
           <Tooltip title="Calculates optimal trades by maximizing units with priority planets first, then maximizing remaining units with other possible trade partners">
             <Button
               variant="contained"
-              onClick={(event) => calculateOptimalTrades(planets, useMaxUnits, maxUnits, setTradeMatrix, setFairShareDebug)}
+              onClick={() => calculateOptimalTrades(planets, useMaxUnits, maxUnits, setTradeMatrix, setFairShareDebug)}
               sx={{ ml: 2 }}
             >
               Calculate Optimal Trades
@@ -303,10 +303,10 @@ const TradeCalculator: React.FC = () => {
                 <AccordionDetails>
                   <Box>
                     <ul style={{ paddingLeft: 18 }}>
-                      {getMissedTrades(planets, tradeMatrix, getUnusedForSuggestions).length === 0 ? (
+                      {getMissedTrades(planets, getUnusedForSuggestions).length === 0 ? (
                         <li>No missed trades found!</li>
                       ) : (
-                        getMissedTrades(planets, tradeMatrix, getUnusedForSuggestions).map(trade => (
+                        getMissedTrades(planets, getUnusedForSuggestions).map(trade => (
                           <li key={`${trade.from}-${trade.to}`}>
                             {trade.from} → {trade.to}: {trade.maxPossible} units
                           </li>

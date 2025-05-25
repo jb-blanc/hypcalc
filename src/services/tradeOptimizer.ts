@@ -1,3 +1,4 @@
+import React from 'react';
 import { Planet, TradeMatrix } from '../types/planet';
 
 export interface MissedTrade {
@@ -30,7 +31,6 @@ export function getUnusedUnits(planets: Planet[], tradeMatrix: TradeMatrix, plan
 
 export function getMissedTrades(
   planets: Planet[],
-  tradeMatrix: TradeMatrix,
   getUnusedUnits: (planetId: string) => number
 ): MissedTrade[] {
   const missedTrades: MissedTrade[] = [];
@@ -65,7 +65,6 @@ export function getMissedTrades(
 
 export function computeOptimized(
   planets: Planet[],
-  getAvailableUnits: (planetId: string) => number,
   useMaxUnits: boolean,
   maxUnits: number
 ) {

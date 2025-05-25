@@ -84,7 +84,7 @@ describe('Trade Optimizer Service', () => {
         return planet.tradingUnits - used;
       };
 
-      const missedTrades = getMissedTrades(mockPlanets, mockTradeMatrix, mockGetUnused);
+      const missedTrades = getMissedTrades(mockPlanets, mockGetUnused);
       
       // Expected missed trades:
       // A could trade with B (A has 40 unused, B has 75 unused)
