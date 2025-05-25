@@ -49,8 +49,6 @@ const TradeCalculator: React.FC = () => {
   const [editDialogOpen, setEditDialogOpen] = useState(false);
   const [editingPlanet, setEditingPlanet] = useState<Planet | null>(null);
   const [editUnits, setEditUnits] = useState<number>(0);
-  const [optimalTrades, setOptimalTrades] = useState<TradeMatrix>({});
-  const [missedTrades, setMissedTrades] = useState<Array<{from: string, to: string, maxPossible: number}>>([]);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
   const [importDialogOpen, setImportDialogOpen] = useState(false);

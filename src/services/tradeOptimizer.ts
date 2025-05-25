@@ -34,7 +34,6 @@ export function getMissedTrades(
   getUnusedUnits: (planetId: string) => number
 ): MissedTrade[] {
   const missedTrades: MissedTrade[] = [];
-  const handledPairs = new Set<string>();
 
   // Define the expected trade directions
   const tradeDirections = [

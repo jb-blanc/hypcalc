@@ -13,7 +13,6 @@ import {
   TableRow,
   Paper,
   Checkbox,
-  Box,
   Typography,
 } from '@mui/material';
 import { Planet } from '../types/planet';
